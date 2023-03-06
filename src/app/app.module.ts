@@ -10,7 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { ToolsService } from './tools.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA
@@ -26,7 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     NgbModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatTableModule
+
   ],
   providers: [ToolsService],
   bootstrap: [AppComponent]
