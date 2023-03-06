@@ -8,6 +8,8 @@ import { ToolsDiagramComponent } from './tools-diagram/tools-diagram.component';
 import { LayoutComponent } from './layout/layout.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
+import { ToolsService } from './tools.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   schemas:[
@@ -17,15 +19,16 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     DashboardComponent,
     ToolsTableComponent,
-    ToolsTableComponent,
+    ToolsDiagramComponent,
     LayoutComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ToolsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
