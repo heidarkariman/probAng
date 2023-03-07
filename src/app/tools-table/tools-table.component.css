@@ -1,39 +1,27 @@
-/* Styles for the table */
-.mat-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 16px;
-  }
-  
-  /* Styles for the table header cells */
-  .mat-header-cell {
-    font-weight: bold;
-    text-align: center;
-    background-color: #007bff !important;
-    color: #ffff !important;
-  }
-  
-  /* Styles for the table row cells */
-  .mat-cell {
-    text-align: center;
-    padding: 8px;
-  }
-  
-  /* Styles for even rows */
-  .mat-row:nth-of-type(even) {
-    background-color: #f2f2f2;
-  }
-  
-  /* Styles for selected rows */
-  .mat-row.mat-row-selected {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .table-striped tbody tr.odd {
-    background-color: #f9f9f9;
-  }
-  
-  .table-striped tbody tr.even {
-    background-color: #ffffff;
-  }
+.mytable {
+  background-color: #f0f5ff;
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+}
+
+.mytable th, .mytable td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #dfe6e9;
+}
+
+.mytable th {
+  background-color: #b3cde0;
+  color: #fff;
+  font-weight: bold;
+}
+
+.mytable tr:nth-child(even) {
+  background-color: #d9e3f0;
+}
+
+.mytable tr:nth-child(odd) {
+  background-color: #e8effa;
+}
