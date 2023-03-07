@@ -11,18 +11,23 @@ import Chart from 'chart.js/auto';
 })
 export class ToolsDiagramComponent implements OnInit, AfterViewInit {
   @Input() tool: Tool | undefined;
-  @ViewChild('myCanvas', { static: false }) canvasRef!: ElementRef<HTMLCanvasElement>;
-  @ViewChildren('myCanvas') canvasRefs!: QueryList<ElementRef>;
+  @ViewChildren('myCanvas') canvasRefs!: QueryList<ElementRef<HTMLCanvasElement>>;
 
+  private myCharts: any[] = [];
 
+  
   constructor(private toolsService: ToolsService) { }
 
   ngOnInit() {
+    
     this.toolsService.getTools().subscribe((tools) => {
-      tools.forEach(tool => {
-        const ctx = this.canvasRef.nativeElement.getContext('2d');
+      this.myCharts = [];
+
+      tools.forEach((tool,index) => {
+        console.log(tool.tool_id);
+        const ctx = this.canvasRefs.toArray()[index].nativeElement.getContext('2d');
         if (ctx) {
-          const chart = new Chart(ctx, {
+            const myChart = new Chart(ctx, {
             type: 'pie',
             data: {
               labels: ['count', 'cposmax', 'cposmin', 'time', 'uposmax', 'uposmin'],
@@ -60,14 +65,17 @@ export class ToolsDiagramComponent implements OnInit, AfterViewInit {
               }
             }
           });
+          this.myCharts.push(myChart);
+
         }
           
       });
       
     });
   }
-
+  
   ngAfterViewInit() {
+    
     // Not used for now
   }
 }
