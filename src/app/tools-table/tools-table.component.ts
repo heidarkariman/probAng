@@ -1,12 +1,14 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,ViewEncapsulation } from '@angular/core';
 import { MatSort,MatSortHeader } from '@angular/material/sort';
 import { ToolsService } from '../tools.service';
 import { Tool } from '../tool.model';
+import { MatTableModule } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-tools-table',
   templateUrl: './tools-table.component.html',
-  styleUrls: ['./tools-table.component.css']
+  styleUrls: ['./tools-table.component.css'],
 })
 
 export class ToolsTableComponent implements OnInit {
