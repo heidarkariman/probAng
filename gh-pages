@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Exit with nonzero exit code if anything fails
+set -e
+
+# Build the Angular app
+ng build --base-href https://heidarkariman.github.io/probAng/
+
+# Go to the dist folder
+cd dist/prob-ang
+
+# Create a new Git repository
+git init
+
+# Add the files to the repository
+git add -A
+
+# Commit the changes
+git commit -m "Deploy to GitHub Pages"
+
+# Push the changes to the gh-pages branch
+git push --force "https://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@github.com/heidarkariman/probAng.git" master:gh-pages
