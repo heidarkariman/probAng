@@ -19,4 +19,5 @@ git add -A
 git commit -m "Deploy to GitHub Pages"
 
 # Push the changes to the gh-pages branch
-git push --force "https://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@github.com/heidarkariman/probAng.git" master:gh-pages
+#git push --force "https://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@github.com/heidarkariman/probAng.git" master:gh-pages
+git push --force "https://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@github.com/heidarkariman/probAng.git" master:gh-pages
