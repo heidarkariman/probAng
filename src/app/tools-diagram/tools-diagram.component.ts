@@ -14,6 +14,7 @@ export class ToolsDiagramComponent implements OnInit, AfterViewInit {
   @ViewChildren('myCanvas') canvasRefs!: QueryList<ElementRef<HTMLCanvasElement>>;
 
   private myCharts: any[] = [];
+  tools!: Tool[];
 
   
   constructor(private toolsService: ToolsService) { }
@@ -22,15 +23,14 @@ export class ToolsDiagramComponent implements OnInit, AfterViewInit {
     
     this.toolsService.getTools().subscribe((tools) => {
       this.myCharts = [];
-
+      this.tools = tools;
       tools.forEach((tool,index) => {
-        console.log(tool.tool_id);
         const ctx = this.canvasRefs.toArray()[index].nativeElement.getContext('2d');
         if (ctx) {
             const myChart = new Chart(ctx, {
             type: 'pie',
             data: {
-              labels: ['count', 'cposmax', 'cposmin', 'time', 'uposmax', 'uposmin'],
+              labels: ['count: '+tool.count, 'cposmax: '+tool.cposmax, 'cposmin: '+tool.cposmin, 'time: '+tool.time, 'uposmax: '+tool.uposmax, 'uposmin: '+tool.uposmin],
               datasets: [{
                 label: '#',
                 data: [tool.count, tool.cposmax, tool.cposmin, tool.time, tool.uposmax, tool.uposmin],
@@ -51,6 +51,7 @@ export class ToolsDiagramComponent implements OnInit, AfterViewInit {
                   'rgba(255, 159, 64, 1)'
                 ],
                 borderWidth: 1
+                
               }]
             },
             options: {
